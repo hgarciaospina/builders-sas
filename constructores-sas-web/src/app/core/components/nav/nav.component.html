@@ -1,0 +1,9 @@
+<ul ngbNav class="nav-tabs" role="tablist">
+    @for (tab of tabs; track tab.path) {
+    <li ngbNavItem>
+        <a ngbNavLink role="tab" (click)="navigate(tab.path)" [class.active]="isActive(tab.path)">
+            {{ tab.title }}
+        </a>
+    </li>
+    }
+</ul>
