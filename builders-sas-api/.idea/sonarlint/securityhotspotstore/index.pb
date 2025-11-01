@@ -27,8 +27,6 @@ _src/main/java/com/builderssas/api/domain/model/construction/dto/UpdateConstruct
 asrc/main/java/com/builderssas/api/domain/model/construction/dto/CreateConstructionRequestDto.java,5\c\5c23091546a68cce7da9b8b210482919292b355c
 ‘
 asrc/main/java/com/builderssas/api/domain/model/construction/dto/UpdateConstructionRequestDto.java,c\5\c566b1af65f4d8d35f4635c31ba7d7ac9a358aad
-ˆ
-Xsrc/main/java/com/builderssas/api/domain/model/construction/dto/ConstructionTypeDto.java,c\b\cb46bdad85795c4d80e8731324168f8067b158e8
 Ž
 ^src/main/java/com/builderssas/api/domain/model/construction/dto/CreateConstructionTypeDto.java,2\c\2c7d1f95aab4eac66128448552708ea31e405cd9
 Ž
@@ -39,18 +37,10 @@ Xsrc/main/java/com/builderssas/api/domain/model/construction/dto/ConstructionTyp
 fsrc/main/java/com/builderssas/api/domain/model/construction/dto/CreateConstructionTypeMaterialDto.java,c\0\c0c211ab93d200ba670c1eafc2dddc94b7a243be
 –
 fsrc/main/java/com/builderssas/api/domain/model/construction/dto/UpdateConstructionTypeMaterialDto.java,3\4\347341540ffe7a54c9d52791fff10a61a91db7c8
-‚
-Rsrc/main/java/com/builderssas/api/domain/model/material/dto/MaterialsStockDto.java,a\2\a22b75eca38ab0221cb43a59a7524f06edd5ae18
-ˆ
-Xsrc/main/java/com/builderssas/api/domain/model/material/dto/CreateMaterialsStockDto.java,e\7\e7c65de12ae92f73d7330706b63fa8c9c9cebb2f
 ˆ
 Xsrc/main/java/com/builderssas/api/domain/model/material/dto/UpdateMaterialsStockDto.java,5\4\5442387c987734a151c9d88e9a7df0f42e78174b
 †
-Vsrc/main/java/com/builderssas/api/domain/model/material/dto/CreateMaterialTypeDto.java,7\8\78eb03ef451eeab13f507fa5e8728bef1d702d5b
-†
 Vsrc/main/java/com/builderssas/api/domain/model/material/dto/UpdateMaterialTypeDto.java,c\3\c36105276554230b6e393b0428e4585e4189f451
-€
-Psrc/main/java/com/builderssas/api/domain/model/material/dto/MaterialTypeDto.java,4\8\48161126861dc791fe8b07fdd8ab900d31960062
 €
 Psrc/main/java/com/builderssas/api/domain/model/project/dto/UpdateProjectDto.java,b\e\be6a61685348f123dc7385527148f270b117f3c9
 €
