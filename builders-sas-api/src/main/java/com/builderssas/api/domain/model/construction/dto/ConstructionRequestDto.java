@@ -6,6 +6,10 @@ import java.time.LocalDate;
 
 /**
  * DTO for returning ConstructionRequest details.
+ *
+ * This class represents the data transfer object for construction requests.
+ * It includes coordinates, request status, and related project/construction type IDs.
+ * Lombok annotations generate getters, setters, constructors, and builder pattern.
  */
 @Getter
 @Setter
@@ -13,6 +17,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ConstructionRequestDto {
+
+    /** Unique identifier of the construction request */
     private Long id;
 
     /** ProjectConstruction configuration ID this request belongs to */

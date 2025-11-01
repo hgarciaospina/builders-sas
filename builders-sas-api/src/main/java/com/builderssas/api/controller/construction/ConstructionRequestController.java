@@ -2,7 +2,6 @@ package com.builderssas.api.controller.construction;
 
 import com.builderssas.api.domain.model.construction.dto.ConstructionRequestDto;
 import com.builderssas.api.services.ConstructionRequestService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,13 +14,25 @@ import java.util.concurrent.CompletableFuture;
  */
 @RestController
 @RequestMapping("/api/construction-requests")
-@RequiredArgsConstructor
 public class ConstructionRequestController {
 
     private final ConstructionRequestService service;
 
     /**
+     * Constructor for dependency injection.
+     * Initializes the final service field to ensure proper Spring injection.
+     *
+     * @param service the ConstructionRequestService to handle business logic
+     */
+    public ConstructionRequestController(ConstructionRequestService service) {
+        this.service = service;
+    }
+
+    /**
      * Create a new Construction Request asynchronously.
+     *
+     * @param dto the ConstructionRequestDto containing the request data
+     * @return CompletableFuture with ResponseEntity wrapping the created DTO
      */
     @PostMapping
     public CompletableFuture<ResponseEntity<ConstructionRequestDto>> createRequest(
@@ -34,6 +45,10 @@ public class ConstructionRequestController {
 
     /**
      * Update an existing Construction Request asynchronously.
+     *
+     * @param id  the ID of the request to update
+     * @param dto the updated ConstructionRequestDto
+     * @return CompletableFuture with ResponseEntity wrapping the updated DTO
      */
     @PutMapping("/{id}")
     public CompletableFuture<ResponseEntity<ConstructionRequestDto>> updateRequest(
@@ -47,6 +62,9 @@ public class ConstructionRequestController {
 
     /**
      * Delete a Construction Request asynchronously.
+     *
+     * @param id the ID of the request to delete
+     * @return CompletableFuture with ResponseEntity indicating success or failure
      */
     @DeleteMapping("/{id}")
     public CompletableFuture<ResponseEntity<Object>> deleteRequest(@PathVariable Long id) {
@@ -57,6 +75,9 @@ public class ConstructionRequestController {
 
     /**
      * Retrieve a Construction Request by ID asynchronously.
+     *
+     * @param id the ID of the request to retrieve
+     * @return CompletableFuture with ResponseEntity wrapping the retrieved DTO
      */
     @GetMapping("/{id}")
     public CompletableFuture<ResponseEntity<?>> getById(@PathVariable Long id) {
@@ -67,6 +88,8 @@ public class ConstructionRequestController {
 
     /**
      * Retrieve all Construction Requests asynchronously.
+     *
+     * @return CompletableFuture with ResponseEntity wrapping the list of DTOs
      */
     @GetMapping
     public CompletableFuture<ResponseEntity<List<ConstructionRequestDto>>> getAll() {

@@ -9,10 +9,17 @@
     <version>1.2.0</version>
 
     <properties>
+        <!-- Java version used for compilation -->
         <java.version>17</java.version>
-        <spring.boot.version>3.2.6</spring.boot.version>
+
+        <!-- Spring Boot version -->
+        <spring.boot.version>3.3.3</spring.boot.version>
+
+        <!-- MapStruct version for annotation processing -->
         <mapstruct.version>1.5.5.Final</mapstruct.version>
-        <lombok.version>1.18.28</lombok.version>
+
+        <!-- Lombok version -->
+        <lombok.version>1.18.30</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -28,31 +35,31 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Spring Boot Web -->
+        <!-- Spring Boot Web starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- ✅ JPA + Hibernate -->
+        <!-- JPA + Hibernate -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- ✅ JDBC Driver PostgreSQL -->
+        <!-- PostgreSQL JDBC Driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
 
-        <!-- ✅ R2DBC -->
+        <!-- R2DBC -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-r2dbc</artifactId>
         </dependency>
 
-        <!-- ✅ R2DBC Driver PostgreSQL -->
+        <!-- PostgreSQL R2DBC Driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>r2dbc-postgresql</artifactId>
@@ -73,13 +80,13 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Validation -->
+        <!-- Jakarta Validation API -->
         <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
         </dependency>
 
-        <!-- Tests -->
+        <!-- Spring Boot Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -89,20 +96,28 @@
 
     <build>
         <plugins>
+            <!-- Maven Compiler Plugin configured for Java 17, Lombok and MapStruct -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
+                <version>3.11.0</version>
                 <configuration>
+                    <!-- Java source and target versions -->
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <release>${java.version}</release>
+                    <!--
+                        Optional: <release> can cause issues with MapStruct + Lombok in JDK17+
+                        Commented out to prevent java.lang.NoSuchFieldError
+                        <release>${java.version}</release>
+                    -->
                     <annotationProcessorPaths>
+                        <!-- MapStruct processor -->
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
                             <version>${mapstruct.version}</version>
                         </path>
+                        <!-- Lombok processor: ensures getters/setters/builders are available during compilation -->
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
@@ -112,6 +127,7 @@
                 </configuration>
             </plugin>
 
+            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
